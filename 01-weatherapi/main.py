@@ -1,8 +1,9 @@
+from api import consultar_clima, ver_historico
+
 def menu():
     opcoes = [
         "Consultar clima",
         "Ver histórico",
-        "Alterar cidade",
         "Sair"
     ]
 
@@ -18,16 +19,23 @@ def menu():
         try:
             opcao = int(input("Digite sua opção: "))
         except ValueError:
-            print("Digite apenas números!")
+            print("Digite apenas números!\n")
             continue
-            
+
         if opcao == 1:
-            pass
+            cidade_escolhida = str(input("Digite o nome da cidade: "))
+
+            informacoes = consultar_clima(cidade_escolhida)
+
+            if informacoes:
+                print(informacoes)
+            else:
+                print("Cidade não encontrada!")
+
+
         elif opcao == 2:
-            pass
+            ver_historico()
         elif opcao == 3:
-            pass
-        elif opcao == 4:
             break
 
 
