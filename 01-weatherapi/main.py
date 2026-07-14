@@ -1,4 +1,5 @@
-from api import consultar_clima, ver_historico
+from api import consultar_clima, ver_historico, formatacao
+from historico import salvar_json
 
 def menu():
     opcoes = [
@@ -23,12 +24,21 @@ def menu():
             continue
 
         if opcao == 1:
-            cidade_escolhida = str(input("Digite o nome da cidade: "))
+            cidade_escolhida = input("Digite o nome da cidade: ")
 
             informacoes = consultar_clima(cidade_escolhida)
 
             if informacoes:
-                print(informacoes)
+
+                salvar_json({
+                    "cidade": informacoes["cidade"],
+                    "pais": informacoes["pais"],
+                    "condicao": informacoes["condicao"],
+                    "temperatura": informacoes["temperatura"]
+                })
+
+                formatacao(informacoes)
+
             else:
                 print("Cidade não encontrada!")
 
