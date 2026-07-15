@@ -1,35 +1,34 @@
-from api import consultar_clima, ver_historico, formatacao
-from historico import salvar_json
+from api import consultar_clima
+from historico import salvar_json, carregar_json
+from interface import (
+    limpar_tela,
+    mostrar_cabecalho,
+    mostrar_menu,
+    mostrar_clima,
+    mostrar_historico,
+    mostrar_cidade_nao_encontrada,
+)
 
 def menu():
-    opcoes = [
-        "Consultar clima",
-        "Ver histórico",
-        "Sair"
-    ]
-
     while True:
-        print("Bem-Vindo ao Weather API".center(30," "))
-        print("-"*30)
-
-        for numero, texto in enumerate(opcoes, 1):
-            print(f"{texto:<20} [{numero}]")
-
-        print("-"*30)
+        limpar_tela()
+        mostrar_cabecalho()
+        mostrar_menu()
 
         try:
-            opcao = int(input("Digite sua opção: "))
+            opcao = int(input("\nDigite sua opção: "))
         except ValueError:
             print("Digite apenas números!\n")
+            input("Pressione Enter para continuar...")
             continue
 
         if opcao == 1:
+            limpar_tela()
             cidade_escolhida = input("Digite o nome da cidade: ")
 
             informacoes = consultar_clima(cidade_escolhida)
 
             if informacoes:
-
                 salvar_json({
                     "cidade": informacoes["cidade"],
                     "pais": informacoes["pais"],
@@ -37,16 +36,31 @@ def menu():
                     "temperatura": informacoes["temperatura"]
                 })
 
-                formatacao(informacoes)
+                limpar_tela()
+                mostrar_cabecalho()
+                mostrar_clima(informacoes)
 
             else:
-                print("Cidade não encontrada!")
+                limpar_tela()
+                mostrar_cabecalho()
+                mostrar_cidade_nao_encontrada()
 
+            input("\nPressione Enter para voltar ao menu...")
 
         elif opcao == 2:
-            ver_historico()
+            limpar_tela()
+            mostrar_cabecalho()
+            mostrar_historico(carregar_json())
+
+            input("\nPressione Enter para voltar ao menu...")
+
         elif opcao == 3:
+            print("\nAté logo!")
             break
+
+        else:
+            print("\nOpção inválida.")
+            input("Pressione Enter para continuar...")
 
 
 if __name__ == "__main__":

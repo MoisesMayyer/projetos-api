@@ -52,10 +52,3 @@ def ver_historico():
         print(f"Condição: {consulta['condicao']}")
         print(f"Temperatura: {consulta['temperatura']}°C")
         print("-" * 30)
-
-
-def formatacao(dados):
-    for nome, valor in dados.items():
-        print(f"{nome}: {valor}")
-
-    print("-"*30)
