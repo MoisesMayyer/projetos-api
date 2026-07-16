@@ -1,32 +1,60 @@
-from api import consultar_pokemon, formatacao
+from api import consultar_pokemon
 from historico import ver_historico, salvar_json
+from interface import (
+    limpar_tela,
+    mostrar_cabecalho,
+    mostrar_menu,
+    mostrar_pokemon,
+    mostrar_historico,
+    mostrar_pokemon_nao_encontrado,
+)
 
 def menu():
     while True:
-        print("MENU POKEMON".center(30, " "))
-        print("-"*30)
-        print("1. Ver pokemon")
-        print("2. Historico")
-        print("3. Sair")
+        limpar_tela()
+        mostrar_cabecalho()
+        mostrar_menu()
 
-        opcao = int(input("opcao escolher: "))
+        opcao = input("\nEscolha uma opção: ")
 
-        if opcao == 1:
-            nome_pokemon = input("nome do pokemon: ")
+        if opcao == "1":
+            limpar_tela()
+            mostrar_cabecalho()
+
+            nome_pokemon = input("Digite o nome do Pokémon: ").strip().lower()
 
             informacoes = consultar_pokemon(nome_pokemon)
-            salvar_json(informacoes)
 
             if informacoes:
-                formatacao(informacoes)
+                salvar_json({
+                    "nome": informacoes["nome"],
+                    "id": informacoes["id"],
+                    "tipo": informacoes["tipos"][0]
+                })
+
+                limpar_tela()
+                mostrar_cabecalho()
+                mostrar_pokemon(informacoes)
+
             else:
-                print("Pokemon não encontrado!")
+                mostrar_pokemon_nao_encontrado()
 
-        elif opcao == 2:
-            ver_historico()
+            input("\nPressione ENTER para continuar...")
 
-        elif opcao == 3:
+        elif opcao == "2":
+            limpar_tela()
+            mostrar_cabecalho()
+
+            historico = ver_historico()
+            mostrar_historico(historico)
+
+            input("\nPressione ENTER para continuar...")
+
+        elif opcao == "3":
             break
+
+        else:
+            input("\nOpção inválida. Pressione ENTER para continuar...")
 
 
 if __name__ == "__main__":

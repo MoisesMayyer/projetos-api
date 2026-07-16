@@ -2,14 +2,7 @@ import json
 
 
 def ver_historico():
-    historico = carregar_json()
-
-    if not historico:
-        print("Nenhum histórico encontrado.")
-        return
-
-    for pokemon in historico:
-        print(pokemon)
+    return carregar_json()
 
 
 def salvar_json(informacoes):
