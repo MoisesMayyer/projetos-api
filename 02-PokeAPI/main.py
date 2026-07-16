@@ -1,5 +1,5 @@
 from api import consultar_pokemon, formatacao
-
+from historico import ver_historico, salvar_json
 
 def menu():
     while True:
@@ -15,6 +15,7 @@ def menu():
             nome_pokemon = input("nome do pokemon: ")
 
             informacoes = consultar_pokemon(nome_pokemon)
+            salvar_json(informacoes)
 
             if informacoes:
                 formatacao(informacoes)
@@ -22,7 +23,7 @@ def menu():
                 print("Pokemon não encontrado!")
 
         elif opcao == 2:
-            print("funcionou")
+            ver_historico()
 
         elif opcao == 3:
             break
