@@ -1,10 +1,10 @@
-🌤️ Weather API - Consulta de Clima
+🌤 Weather API - Consulta de Clima
 
 Projeto desenvolvido em Python para praticar o consumo de uma **API REST** utilizando a WeatherAPI.
 
 A aplicação realiza requisições para uma API externa, recebe os dados em formato JSON e exibe informações climáticas de uma cidade escolhida pelo usuário.
 
-## 🚀 Tecnologias utilizadas
+##  Tecnologias utilizadas
 
 - Python 3
 - Requests
@@ -12,7 +12,7 @@ A aplicação realiza requisições para uma API externa, recebe os dados em for
 - JSON
 - WeatherAPI
 
-## 📌 Funcionalidades
+##  Funcionalidades
 
 -  Consultar clima atual de uma cidade
 -  Exibir informações meteorológicas
