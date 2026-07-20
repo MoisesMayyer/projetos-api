@@ -1,14 +1,12 @@
 import requests
+from historico import salvar_json
 
 
-def consultar_cep():
-    while True:
-        cep = input("Digite o CEP: ").strip()
+def consultar_cep(cep):
+    cep = cep.strip()
 
-        if cep.isdigit():
-            break
-
-        print("Digite apenas números")
+    if not cep.isdigit():
+        return None
 
     url = f"https://brasilapi.com.br/api/cep/v1/{cep}"
 
@@ -16,7 +14,9 @@ def consultar_cep():
         response = requests.get(url)
 
         if response.status_code == 200:
-            return response.json()
+            dados = response.json()
+            salvar_json(dados)
+            return dados
 
         return None
 
