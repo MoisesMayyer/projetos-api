@@ -1,7 +1,6 @@
 import json
 
 
-
 def salvar_json(dados):
     historico = carregar_json()
     historico.append(dados)
