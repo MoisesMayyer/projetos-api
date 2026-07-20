@@ -27,7 +27,6 @@ def exibir_menu():
 
 
 def formatacao(dados: dict, titulo: str = "Resultado"):
-    """Exibe um dicionário de dados de CEP em formato de tabela Rich."""
     tabela = Table(title=titulo, show_header=True, header_style="bold magenta")
     tabela.add_column("Campo", style="cyan", no_wrap=True)
     tabela.add_column("Valor", style="white")
