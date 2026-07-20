@@ -9,10 +9,10 @@ from rich.text import Text
 
 console = Console()
 
-COR_PRIMARIA = "#E3350D"   # vermelho Pokédex
-COR_DESTAQUE = "yellow"    # amarelo para destaques
+COR_PRIMARIA = "#E3350D"
+COR_DESTAQUE = "yellow"
 COR_TEXTO = "white"
-COR_SECUNDARIA = "grey62"  # cinza
+COR_SECUNDARIA = "grey62"
 COR_FUNDO_ESCURO = "black"
 
 
