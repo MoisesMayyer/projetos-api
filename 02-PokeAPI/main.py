@@ -9,7 +9,7 @@ from interface import (
     mostrar_pokemon_nao_encontrado,
 )
 
-def menu():
+def menu() -> None:
     while True:
         limpar_tela()
         mostrar_cabecalho()
@@ -23,7 +23,7 @@ def menu():
 
             nome_pokemon = input("Digite o nome do Pokémon: ").strip().lower()
 
-            informacoes = consultar_pokemon(nome_pokemon)
+            informacoes: dict | None = consultar_pokemon(nome_pokemon)
 
             if informacoes:
                 salvar_json({
@@ -45,7 +45,7 @@ def menu():
             limpar_tela()
             mostrar_cabecalho()
 
-            historico = ver_historico()
+            historico: list[dict] = ver_historico()
             mostrar_historico(historico)
 
             input("\nPressione ENTER para continuar...")

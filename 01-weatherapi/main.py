@@ -61,7 +61,7 @@ def menu() -> None:
         else:
             print("\nOpção inválida.")
             input("Pressione Enter para continuar...")
-    
+
 
 if __name__ == "__main__":
     menu()

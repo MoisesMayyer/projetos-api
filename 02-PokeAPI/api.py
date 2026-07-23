@@ -1,9 +1,9 @@
 import requests
 
-LINK_API = "https://pokeapi.co/api/v2/pokemon/"
-LINK_DESCRICAO = f"https://pokeapi.co/api/v2/pokemon-species/"
+LINK_API: str = "https://pokeapi.co/api/v2/pokemon/"
+LINK_DESCRICAO: str = f"https://pokeapi.co/api/v2/pokemon-species/"
 
-def ver_pokemon(pokemon):
+def ver_pokemon(pokemon: str) -> dict | None:
 
     link = f"{LINK_API}{pokemon}"
 
@@ -29,8 +29,7 @@ def ver_pokemon(pokemon):
 
     return informacoes
 
-
-def buscar_descricao(pokemon):
+def buscar_descricao(pokemon: str) -> str | None:
 
     link = f"{LINK_DESCRICAO}{pokemon}"
 
@@ -57,19 +56,19 @@ def buscar_descricao(pokemon):
     return descricao
 
 
-def consultar_pokemon(pokemon):
-    informacoes = ver_pokemon(pokemon)
+def consultar_pokemon(pokemon: str) -> dict | None:
+    informacoes: dict | None = ver_pokemon(pokemon)
 
     if informacoes is None:
         return None
 
-    descricao = buscar_descricao(pokemon)
+    descricao: str | None = buscar_descricao(pokemon)
 
     informacoes["descricao"] = descricao
 
     return informacoes
 
 
-def formatacao(informacoes):
+def formatacao(informacoes: dict) -> None:
     for texto, dados in informacoes.items():
         print(f"{texto}: {dados}")
