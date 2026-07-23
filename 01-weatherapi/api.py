@@ -5,11 +5,15 @@ from historico import carregar_json
 
 load_dotenv()
 
-api_key = os.getenv("WEATHER_API_KEY")
-link_api = "http://api.weatherapi.com/v1/current.json"
+api_key: str | None = os.getenv("WEATHER_API_KEY")
 
-def consultar_clima(cidade):
-    parametros = {
+if api_key is None:
+    raise ValueError("WEATHER_API_KEY não configurada")
+
+link_api: str = "http://api.weatherapi.com/v1/current.json"
+
+def consultar_clima(cidade: str) -> dict | None:
+    parametros: dict = {
         "key": api_key,
         "q": cidade,
         "lang": "pt"
@@ -20,7 +24,7 @@ def consultar_clima(cidade):
     if resposta.status_code != 200:
         return None
 
-    dados = resposta.json()
+    dados: dict = resposta.json()
 
     return {
         "cidade": dados["location"]["name"],
@@ -34,9 +38,8 @@ def consultar_clima(cidade):
     }
 
 
-
-def ver_historico():
-    historico = carregar_json()
+def ver_historico() -> None:
+    historico: list[dict] = carregar_json()
 
     if not historico:
         print("Você não tem histórico ainda.\n")

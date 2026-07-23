@@ -9,7 +9,7 @@ from interface import (
     mostrar_cidade_nao_encontrada,
 )
 
-def menu():
+def menu() -> None:
     while True:
         limpar_tela()
         mostrar_cabecalho()
@@ -24,9 +24,9 @@ def menu():
 
         if opcao == 1:
             limpar_tela()
-            cidade_escolhida = input("Digite o nome da cidade: ")
+            cidade_escolhida: str = input("Digite o nome da cidade: ")
 
-            informacoes = consultar_clima(cidade_escolhida)
+            informacoes: dict | None = consultar_clima(cidade_escolhida)
 
             if informacoes:
                 salvar_json({
@@ -61,7 +61,7 @@ def menu():
         else:
             print("\nOpção inválida.")
             input("Pressione Enter para continuar...")
-
+    
 
 if __name__ == "__main__":
     menu()
