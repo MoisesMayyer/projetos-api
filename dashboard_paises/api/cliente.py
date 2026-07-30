@@ -1,9 +1,15 @@
+import os
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_URL = "https://api.restcountries.com/countries/v5?q="
+
 HEADERS = {
-    "Authorization": "REMOVIDA"
+    "Authorization": f"Bearer {os.getenv('API_KEY')}"
 }
+
 
 def fazer_requisicao(url):
     resposta = requests.get(
