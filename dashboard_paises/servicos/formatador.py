@@ -20,7 +20,3 @@ def formata_dados(dados) -> dict:
 
     return dados_formatados
 
-
-def mostrar_dados(dados) -> None:
-    for campo, valor in dados.items():
-        print(f"{campo}: {valor}")
