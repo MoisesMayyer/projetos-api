@@ -1,4 +1,4 @@
-from dashboard_paises.servicos.pais import pesquisar_pais
+from dashboard_paises.servicos.pais import pesquisar_pais, comparar_paises
 
 opcoes = [
     "[1] pesquisar pais:",
@@ -7,7 +7,7 @@ opcoes = [
     "[4] sair:",
 ]
 
-def menu_principal():
+def menu_principal() -> None:
     while True:
         print("-"*30)
         print("Dashboard Países".center(30))
@@ -25,17 +25,17 @@ def menu_principal():
                 print("Valor invalido")
 
         if opc_escolhida == 1:
-           pesquisar_pais()
+            nome_pais = input("Digite o nome do país: ")
+            pesquisar_pais(nome_pais)
 
         elif opc_escolhida == 2:
-            print("Comparando")
+            pais1 = input("digite o primeiro país: ")
+            pais2 = input("digite o segundo país para comparar:")
+
+            comparar_paises(pais1, pais2)
 
         elif opc_escolhida == 3:
             break
 
         else:
             print("opc invalida")
-
-
-
-menu_principal()

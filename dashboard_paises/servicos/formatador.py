@@ -1,5 +1,5 @@
 
-def formata_dados(dados):
+def formata_dados(dados) -> dict:
     pais = dados["data"]["objects"][0]
 
     dados_formatados = {
@@ -19,3 +19,8 @@ def formata_dados(dados):
     }
 
     return dados_formatados
+
+
+def mostrar_dados(dados) -> None:
+    for campo, valor in dados.items():
+        print(f"{campo}: {valor}")
