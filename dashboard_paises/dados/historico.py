@@ -5,7 +5,7 @@ from datetime import datetime
 def criar_registro_historico(nome_pais, acao):
     return {
         "data": datetime.now().strftime("%d/%m/%Y"),
-        "pais": nome_pais,
+        "nome": nome_pais,
         "acao": acao
     }
 

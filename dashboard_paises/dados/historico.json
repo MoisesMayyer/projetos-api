@@ -1,42 +1,7 @@
 [
     {
         "data": "31/07/2026",
-        "pais": "Brazil",
-        "acao": "Pesquisa simples"
-    },
-    {
-        "data": "31/07/2026",
-        "pais": "Portugal",
-        "acao": "Comparação"
-    },
-    {
-        "data": "31/07/2026",
-        "pais": "Japan",
-        "acao": "Comparação"
-    },
-    {
-        "data": "31/07/2026",
-        "pais": "Brazil",
-        "acao": "Pesquisa simples"
-    },
-    {
-        "data": "31/07/2026",
-        "pais": "Brazil",
-        "acao": "Pesquisa simples"
-    },
-    {
-        "data": "31/07/2026",
-        "pais": "Portugal",
-        "acao": "Pesquisa simples"
-    },
-    {
-        "data": "31/07/2026",
-        "pais": "Brazil",
-        "acao": "Pesquisa simples"
-    },
-    {
-        "data": "31/07/2026",
-        "pais": "Brazil",
+        "nome": "Brazil",
         "acao": "Pesquisa simples"
     }
 ]

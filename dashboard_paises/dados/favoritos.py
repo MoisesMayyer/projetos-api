@@ -3,7 +3,7 @@ import json
 
 def criar_registro_favoritos(nome_pais, capital,continente,populacao):
     return {
-        "pais": nome_pais,
+        "nome": nome_pais,
         "capital": capital,
         "continente": continente,
         "populacao": populacao
@@ -12,6 +12,14 @@ def criar_registro_favoritos(nome_pais, capital,continente,populacao):
 
 def adicionar_favoritos(dados: dict) -> None:
     favoritos = carregar_favoritos()
+
+    ja_favoritado = any(
+        favorito["nome"] == dados["nome"]
+        for favorito in favoritos
+    )
+
+    if ja_favoritado:
+        return
 
     registro = criar_registro_favoritos(
         nome_pais=dados["nome"],

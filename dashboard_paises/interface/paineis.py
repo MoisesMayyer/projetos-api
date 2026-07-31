@@ -83,20 +83,20 @@ def mostrar_painel_continente(continentes):
     console.print(painel)
 
 
-def mostrar_paineis_lado_a_lado(dados_formatados_1,dados_formatados_2):
+def mostrar_paineis_lado_a_lado(dados_formatados_1, dados_formatados_2):
 
-    painel_brasil = Panel(
+    painel_pais1 = Panel(
         montar_texto_pais(dados_formatados_1),
-        title="Brasil",
+        title=dados_formatados_1["nome"],
         border_style="green",
         padding=(1, 2),
     )
 
-    painel_japao = Panel(
+    painel_pais2 = Panel(
         montar_texto_pais(dados_formatados_2),
-        title="Japão",
+        title=dados_formatados_2["nome"],
         border_style="red",
         padding=(1, 2),
     )
 
-    console.print(Columns([painel_brasil, painel_japao]))
+    console.print(Columns([painel_pais1, painel_pais2]))

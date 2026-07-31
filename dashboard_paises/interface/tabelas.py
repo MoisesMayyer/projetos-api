@@ -108,7 +108,7 @@ def mostrar_tabela_favoritos():
 
     for pesquisa in paises_favoritos:
         tabela.add_row(
-            pesquisa["pais"],
+            pesquisa["nome"],
             pesquisa["capital"],
             pesquisa["continente"],
             f"{pesquisa['populacao']:,}"
@@ -137,7 +137,7 @@ def mostrar_tabela_historico():
         for pesquisa in paises_historico:
             tabela.add_row(
                 pesquisa["data"],
-                pesquisa["pais"],
+                pesquisa["nome"],
                 pesquisa["acao"]
             )
 

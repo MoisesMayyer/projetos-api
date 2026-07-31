@@ -15,10 +15,16 @@ def pesquisar_pais(nome_pais: str, acao="Pesquisa simples") -> dict:
     resposta = dados_do_pais(nome_pais)
     dados = formata_dados(resposta)
 
-    adicionar_historico(
-        nome_pais=dados["nome"],
-        acao=acao
+    ja_existe = any(
+        pais["nome"] == dados["nome"]
+        for pais in historico_paises
     )
+
+    if not ja_existe:
+        adicionar_historico(
+            nome_pais=dados["nome"],
+            acao=acao
+        )
 
     return dados
 
