@@ -9,6 +9,19 @@ def criar_registro_historico(nome_pais, acao):
         "acao": acao
     }
 
+
+def adicionar_historico(nome_pais: str, acao: str):
+    historico = carregar_historico()
+
+    registro = criar_registro_historico(
+        nome_pais=nome_pais,
+        acao=acao
+    )
+
+    historico.append(registro)
+    salvar_historico(historico)
+
+
 def salvar_historico(historico) -> None:
 
     with open("dados/historico.json", "w", encoding="utf-8") as arquivo:

@@ -4,7 +4,7 @@ from rich.prompt import Prompt
 
 from interface import paineis
 from interface import tabelas
-from servicos.pais import pesquisar_pais
+from servicos.pais import pesquisar_pais, comparar_paises
 
 console = Console()
 
@@ -58,20 +58,29 @@ def capturar_escolha():
 def encaminhar_escolha(escolha: str):
 
     if escolha == "1":
-        pais_a = pesquisar_pais()
+        nome_pais = input("Digite o nome do país: ")
+        pais_a = pesquisar_pais(nome_pais)
         paineis.mostrar_painel_pais(pais_a)
 
     elif escolha == "2":
-        pais_a = pesquisar_pais()
-        pais_b = pesquisar_pais()
-        tabelas.mostrar_tabela_comparacao(pais_a, pais_b)
+        nome_pais1 = input("Digite o nome do país para comparar: ")
+        nome_pais2 = input("Digite o nome do segundo país: ")
+
+        pais_1, pais_2 = comparar_paises(
+            nome_pais1,
+            nome_pais2
+        )
+
+        tabelas.mostrar_tabela_comparacao(
+            pais_1,
+            pais_2
+        )
 
     elif escolha == "3":
         print("esta função ainda nn foi adicionada")
         #paineis.mostrar_painel_continente(continentes)
 
     elif escolha == "4":
-        #nao funcionando
         tabelas.mostrar_tabela_historico()
 
     elif escolha == "5":
