@@ -1,6 +1,7 @@
 from rich.console import Console
 from rich.table import Table
 
+from dados.favoritos import carregar_favoritos
 from dados.historico import carregar_historico
 
 console = Console()
@@ -91,6 +92,7 @@ def mostrar_tabela_comparacao(dado_pais1, dado_pais2):
 
 
 def mostrar_tabela_favoritos():
+    paises_favoritos = carregar_favoritos()
 
     tabela = Table(
         title="Países Favoritos",
@@ -103,6 +105,14 @@ def mostrar_tabela_favoritos():
     tabela.add_column("Capital", justify="center")
     tabela.add_column("Continente", justify="center")
     tabela.add_column("População", justify="right")
+
+    for pesquisa in paises_favoritos:
+        tabela.add_row(
+            pesquisa["pais"],
+            pesquisa["capital"],
+            pesquisa["continente"],
+            f"{pesquisa['populacao']:,}"
+        )
 
 
     console.print(tabela)

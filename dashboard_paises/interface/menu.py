@@ -2,6 +2,7 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.prompt import Prompt
 
+from dados.favoritos import adicionar_favoritos
 from interface import paineis
 from interface import tabelas
 from servicos.pais import pesquisar_pais, comparar_paises
@@ -61,6 +62,11 @@ def encaminhar_escolha(escolha: str):
         nome_pais = input("Digite o nome do país: ")
         pais_a = pesquisar_pais(nome_pais)
         paineis.mostrar_painel_pais(pais_a)
+
+        favoritar_pais = input("deseja colocar este país como favorito[S/N]:").strip().lower()
+
+        if favoritar_pais == "s":
+            adicionar_favoritos(pais_a)
 
     elif escolha == "2":
         nome_pais1 = input("Digite o nome do país para comparar: ")

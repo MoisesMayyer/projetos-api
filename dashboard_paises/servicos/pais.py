@@ -10,6 +10,7 @@ from dashboard_paises.servicos.formatador import formata_dados
 
 historico_paises = carregar_historico()
 
+
 def pesquisar_pais(nome_pais: str, acao="Pesquisa simples") -> dict:
     resposta = dados_do_pais(nome_pais)
     dados = formata_dados(resposta)

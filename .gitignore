@@ -181,3 +181,4 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 01-weatherapi/historico.json
+dashboard_paises/dados/favoritos.json
