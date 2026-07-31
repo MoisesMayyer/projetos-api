@@ -67,8 +67,8 @@ def encaminhar_escolha(escolha: str):
         tabelas.mostrar_tabela_comparacao(pais_a, pais_b)
 
     elif escolha == "3":
-        continentes = [] # -> ainda nn funciona
-        paineis.mostrar_painel_continente(continentes)
+        print("esta função ainda nn foi adicionada")
+        #paineis.mostrar_painel_continente(continentes)
 
     elif escolha == "4":
         #nao funcionando

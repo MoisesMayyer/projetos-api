@@ -1,6 +1,8 @@
 from rich.console import Console
 from rich.table import Table
 
+from dados.historico import carregar_historico
+
 console = Console()
 
 
@@ -102,14 +104,12 @@ def mostrar_tabela_favoritos():
     tabela.add_column("Continente", justify="center")
     tabela.add_column("População", justify="right")
 
-    tabela.add_row("Brasil", "Brasília", "América do Sul", "203 milhões")
-    tabela.add_row("Portugal", "Lisboa", "Europa", "10 milhões")
-    tabela.add_row("Japão", "Tóquio", "Ásia", "124 milhões")
 
     console.print(tabela)
 
 
 def mostrar_tabela_historico():
+    paises_historico = carregar_historico()
 
     tabela = Table(
         title="Histórico de Pesquisas",
@@ -118,12 +118,17 @@ def mostrar_tabela_historico():
         border_style="magenta",
     )
 
-    tabela.add_column("Data", style="dim")
-    tabela.add_column("País pesquisado", style="bold white")
+    tabela.add_column("nome", style="dim")
+    tabela.add_column("país pesquisado", style="bold white")
     tabela.add_column("Ação", justify="center")
 
-    tabela.add_row("30/07/2026", "Brasil", "Pesquisa simples")
-    tabela.add_row("29/07/2026", "Japão", "Comparação")
-    tabela.add_row("28/07/2026", "Argentina", "Adicionado aos favoritos")
+
+    if paises_historico:
+        for pesquisa in paises_historico:
+            tabela.add_row(
+                pesquisa["data"],
+                pesquisa["pais"],
+                pesquisa["acao"]
+            )
 
     console.print(tabela)

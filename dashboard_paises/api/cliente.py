@@ -27,3 +27,6 @@ def dados_do_pais(nome):
     resposta = fazer_requisicao(url)
 
     return resposta.json()
+
+
+"""def dados_continentes():""" # -> ainda nn sei como pegar todos os continentes do json
