@@ -79,10 +79,15 @@ Digite o nome do país desejado. O sistema busca na REST Countries API e exibe o
 ### 2. Comparar países
 Informe dois ou mais nomes de países. O programa monta uma tabela colocando os dados lado a lado para facilitar a comparação (população, área, capital, região, idiomas, etc).
 
-### 3. Ver histórico
+### 3. Países por continente
+opção ainda não funcionando 
+
+### 4. Ver histórico
 Lista todas as pesquisas já realizadas, carregadas do arquivo `historico.json`.
 
-### 4. Ver favoritos
+
+
+### 5. Ver favoritos
 Lista os países marcados como favoritos, carregados do arquivo `favoritos.json`. É possível adicionar um país aos favoritos a partir da tela de pesquisa.
 
 ---
